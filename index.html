@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Tangled In Tradition — Handmade Journals & 3D Prints</title>
+<meta name="description" content="Three handmade shops, one studio. We turn your favorite books, vinyl records, and ideas into custom journals, notebooks, and 3D-printed pieces." />
+<link rel="canonical" href="https://tangledintradition.com/" />
+
+<!-- Open Graph: the preview card shown when your link is shared -->
+<meta property="og:title" content="Tangled In Tradition — Handmade Journals & 3D Prints" />
+<meta property="og:description" content="Three handmade shops, one studio. Favorite books, vinyl records, and ideas — turned into custom journals, notebooks, and 3D-printed pieces." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://tangledintradition.com/" />
+
+<!-- Emoji favicon (no separate file needed). -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧵</text></svg>" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --ink:        #221b26;  /* deep aubergine surface  */
+    --paper:      #f4ecdd;  /* ivory tag stock         */
+    --paper-edge: #e6dcc7;  /* tag shadow / edge       */
+    --brass:      #c39a4e;  /* letterpress gold accent */
+    --teal:       #3a6c67;  /* secondary accent        */
+    --cream-text: #ece2d2;  /* light text on dark      */
+    --muted:      #9a8fa0;  /* muted light text        */
+    --ink-text:   #34262c;  /* dark text on tags       */
+    --ink-muted:  #7c6a63;  /* muted dark text on tags */
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    background: var(--ink);
+    color: var(--cream-text);
+    font-family: "Hanken Grotesk", system-ui, sans-serif;
+    line-height: 1.5;
+    background-image:
+      radial-gradient(circle at 15% 18%, rgba(195,154,78,0.07), transparent 42%),
+      radial-gradient(circle at 85% 82%, rgba(58,108,103,0.08), transparent 46%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .wrap { width: 100%; max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+  /* ── Eyebrow ── */
+  .eyebrow {
+    font-family: "Space Mono", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--brass);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+  }
+  .eyebrow::before, .eyebrow::after {
+    content: ""; height: 1px; width: 34px;
+    background: var(--brass); opacity: 0.55;
+  }
+
+  /* ── Hero ── */
+  header { padding: clamp(64px, 12vh, 118px) 0 clamp(40px, 8vh, 70px); text-align: center; }
+  .studio-name {
+    font-family: "Instrument Serif", Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(2.9rem, 9.5vw, 5.8rem);
+    line-height: 1.0;
+    letter-spacing: -0.005em;
+    margin: 22px 0 20px;
+    color: var(--paper);
+  }
+  .studio-name em { font-style: italic; color: var(--brass); }
+  .lede {
+    max-width: 46ch; margin: 0 auto;
+    font-size: clamp(1.05rem, 2.4vw, 1.22rem);
+    color: var(--muted);
+  }
+
+  /* ── Shop grid ── */
+  .shops {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    padding-bottom: clamp(56px, 10vh, 94px);
+  }
+  @media (max-width: 860px) { .shops { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; } }
+
+  /* the swing-tag card */
+  .tag {
+    position: relative;
+    background: var(--paper);
+    color: var(--ink-text);
+    border-radius: 6px;
+    clip-path: polygon(0 26px, 26px 0, 100% 0, 100% 100%, 0 100%);
+    padding: 46px 26px 30px;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    box-shadow: 0 1px 0 var(--paper-edge), 0 18px 34px -20px rgba(0,0,0,0.55);
+    transition: transform 0.35s cubic-bezier(.2,.7,.3,1), box-shadow 0.35s ease;
+    transform-origin: 20px 20px;
+  }
+  .tag::before {
+    content: "";
+    position: absolute;
+    top: 15px; left: 15px;
+    width: 13px; height: 13px;
+    border-radius: 50%;
+    background: var(--ink);
+    box-shadow: inset 0 0 0 2px var(--brass);
+  }
+  .tag:hover, .tag:focus-visible {
+    transform: rotate(-1.6deg) translateY(-6px);
+    box-shadow: 0 1px 0 var(--paper-edge), 0 30px 50px -22px rgba(0,0,0,0.6);
+    outline: none;
+  }
+  .tag:focus-visible { box-shadow: 0 0 0 3px var(--brass), 0 30px 50px -22px rgba(0,0,0,0.6); }
+
+  .tag-cat {
+    font-family: "Space Mono", monospace;
+    font-size: 0.66rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 14px;
+  }
+  .tag-name {
+    font-family: "Instrument Serif", Georgia, serif;
+    font-size: 1.95rem;
+    line-height: 1.03;
+    margin-bottom: 8px;
+  }
+  .tag-line { font-size: 0.92rem; font-weight: 600; color: var(--ink-text); margin-bottom: 12px; }
+  .tag-desc { font-size: 0.9rem; color: var(--ink-muted); flex-grow: 1; margin-bottom: 26px; }
+  .tag-cta {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-weight: 700; font-size: 0.9rem; color: var(--ink-text);
+    padding-top: 16px; border-top: 1px solid var(--paper-edge);
+  }
+  .tag-cta .arrow { transition: transform 0.3s ease; color: var(--brass); }
+  .tag:hover .tag-cta .arrow, .tag:focus-visible .tag-cta .arrow { transform: translateX(5px); }
+
+  /* ── Footer ── */
+  footer {
+    margin-top: auto;
+    border-top: 1px solid rgba(236,226,210,0.12);
+    padding: 28px 0 40px; text-align: center;
+  }
+  .foot-mark { font-family: "Instrument Serif", Georgia, serif; font-size: 1.2rem; color: var(--paper); }
+  .foot-note {
+    font-family: "Space Mono", monospace; font-size: 0.72rem;
+    letter-spacing: 0.1em; color: var(--muted); margin-top: 6px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+    .tag:hover, .tag:focus-visible { transform: none; }
+  }
+</style>
+</head>
+<body>
+
+  <header>
+    <div class="wrap">
+      <p class="eyebrow">Three shops · One studio</p>
+      <h1 class="studio-name">Tangled <em>in</em> Tradition</h1>
+      <p class="lede">We turn the things you love — favorite books, classic records, and ideas — into handmade journals, notebooks, and 3D-printed pieces. Pick a shop below to browse on Etsy.</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="shops">
+
+      <a class="tag" href="https://www.etsy.com/shop/favoritebookjournals" target="_blank" rel="noopener">
+        <span class="tag-cat">Books · Comics · Playbills</span>
+        <h2 class="tag-name">Favorite Book Journals</h2>
+        <p class="tag-line">Your favorite stories, rebound.</p>
+        <p class="tag-desc">We transform beloved and classic books, comics, and show playbills into notebooks, journals, recipe books, and sketchbooks.</p>
+        <span class="tag-cta">Visit on Etsy <span class="arrow">→</span></span>
+      </a>
+
+      <a class="tag" href="https://www.etsy.com/shop/vinylrecordnotebooks" target="_blank" rel="noopener">
+        <span class="tag-cat">Vinyl · Music · Concerts</span>
+        <h2 class="tag-name">Vinyl Record Notebooks</h2>
+        <p class="tag-line">Records that spin into stories.</p>
+        <p class="tag-desc">We transform favorite and classic vinyl records into journals, notebooks, and concert memory keepsakes.</p>
+        <span class="tag-cta">Visit on Etsy <span class="arrow">→</span></span>
+      </a>
+
+      <a class="tag" href="https://www.etsy.com/shop/tangledin3d" target="_blank" rel="noopener">
+        <span class="tag-cat">3D Printed · Made to Order</span>
+        <h2 class="tag-name">Tangled In 3D</h2>
+        <p class="tag-line">Made to order, layer by layer.</p>
+        <p class="tag-desc">Custom 3D-printed items — practical, playful, and one of a kind, printed to order.</p>
+        <span class="tag-cta">Visit on Etsy <span class="arrow">→</span></span>
+      </a>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p class="foot-mark">Tangled In Tradition</p>
+      <p class="foot-note">© <span id="yr"></span> · Handmade with care</p>
+    </div>
+  </footer>
+
+  <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>
