@@ -329,6 +329,19 @@
       text-align: center;
     }
     .foot-mark { font-family: "Instrument Serif", Georgia, serif; font-size: 1.2rem; color: var(--paper); }
+    .foot-links { margin-top: 10px; }
+    .foot-links a {
+      color: var(--brass);
+      font-family: "Space Mono", monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+    .foot-links a:hover, .foot-links a:focus-visible {
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
     .foot-note {
       font-family: "Space Mono", monospace;
       font-size: 0.72rem;
@@ -416,6 +429,7 @@
   <footer>
     <div class="wrap">
       <p class="foot-mark">Tangled In Tradition</p>
+      <p class="foot-links"><a href="/returns.html">Returns &amp; Exchanges</a></p>
       <p class="foot-note">© <span id="yr"></span> · Handmade with care</p>
     </div>
   </footer>
