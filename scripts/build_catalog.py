@@ -86,7 +86,7 @@ def breadcrumbs(items: list[tuple[str, str | None]]) -> str:
 
 def page(title: str, description: str, path: str, body: str, graph: list[dict], image_url: str | None = None) -> str:
     canonical = SITE + path
-    og_image = f'<meta property="og:image" content="{esc(SITE + image_url)}">' if image_url else ""
+    og_image = f'<meta property="og:image" content="{esc(SITE + image_url)}">\n' if image_url else ""
     schema = json.dumps({"@context": "https://schema.org", "@graph": graph}, ensure_ascii=False).replace("<", "\\u003c")
     return f'''<!DOCTYPE html>
 <html lang="en">
@@ -101,13 +101,12 @@ def page(title: str, description: str, path: str, body: str, graph: list[dict], 
   <meta property="og:title" content="{esc(title)} | Tangled in Tradition">
   <meta property="og:description" content="{esc(description)}">
   <meta property="og:url" content="{esc(canonical)}">
-  {og_image}
-  <meta name="twitter:card" content="summary_large_image">
+{og_image}  <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#221b26">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;family=Space+Mono&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/catalog.css">
+  <link rel="stylesheet" href="/assets/catalog.css?v=2">
   <script type="application/ld+json">{schema}</script>
 </head>
 <body>
@@ -264,7 +263,7 @@ def build_sitemap(products: list[dict]) -> str:
     for path in paths:
         entry = ET.SubElement(root, ns + "url")
         ET.SubElement(entry, ns + "loc").text = SITE + path
-        ET.SubElement(entry, ns + "lastmod").text = "2026-09-27"
+        ET.SubElement(entry, ns + "lastmod").text = "2026-09-22" if path == "/returns.html" else "2026-09-27"
     ET.indent(root, space="  ")
     return '<?xml version="1.0" encoding="UTF-8"?>\n' + ET.tostring(root, encoding="unicode") + "\n"
 
