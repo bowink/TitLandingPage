@@ -226,6 +226,60 @@
     .tag-cta .arrow { transition: transform 0.3s ease; color: var(--brass); }
     .tag:hover .tag-cta .arrow, .tag:focus-visible .tag-cta .arrow { transform: translateX(5px); }
 
+    .collections {
+      padding: 4px 0 clamp(60px, 10vh, 92px);
+    }
+    .collections-head { text-align: center; margin: 0 auto 30px; max-width: 68ch; }
+    .collections-head h2 {
+      font-family: "Instrument Serif", Georgia, serif;
+      font-weight: 400;
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      color: var(--paper);
+      margin: 13px 0;
+      line-height: 1.04;
+    }
+    .collections-head p:last-child { color: var(--muted); }
+    .collection-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+    .collection-card {
+      display: flex;
+      align-items: stretch;
+      color: var(--ink-text);
+      background: var(--paper);
+      border-radius: 7px;
+      overflow: hidden;
+      text-decoration: none;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .collection-card:hover, .collection-card:focus-visible {
+      transform: translateY(-4px);
+      box-shadow: 0 22px 40px rgba(0,0,0,.28);
+      outline: 2px solid var(--brass);
+      outline-offset: 2px;
+    }
+    .collection-card img, .collection-placeholder {
+      width: 42%;
+      min-height: 182px;
+      object-fit: cover;
+      flex: none;
+    }
+    .collection-placeholder {
+      display: grid;
+      place-items: center;
+      background: var(--ink-2);
+      color: var(--brass);
+      font-family: "Instrument Serif", Georgia, serif;
+      font-size: 3.8rem;
+    }
+    .collection-copy { display: flex; flex-direction: column; padding: 24px 19px; }
+    .collection-copy strong { font-family: "Instrument Serif", Georgia, serif; font-size: 1.8rem; font-weight: 400; line-height: 1.05; }
+    .collection-copy span { color: var(--ink-muted); font-size: .86rem; margin-top: 10px; flex: 1; }
+    .collection-copy b { font-size: .84rem; padding-top: 14px; }
+    @media (max-width: 760px) { .collection-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 440px) {
+      .collection-card { flex-direction: column; }
+      .collection-card img, .collection-placeholder { width: 100%; height: 180px; min-height: 0; }
+    }
+
     .about {
       max-width: 900px;
       margin: 0 auto clamp(56px, 10vh, 94px);
@@ -392,6 +446,32 @@
         <span class="tag-cta">Shop 3D prints on Etsy <span class="arrow">→</span></span>
       </a>
     </div>
+
+    <section class="collections" aria-labelledby="collections-title">
+      <div class="collections-head">
+        <p class="eyebrow">Explore the studio</p>
+        <h2 id="collections-title">Browse our handmade journals</h2>
+        <p>See photographed examples of real records, favorite books and playbills made into journals. The comic book collection is ready for its photos.</p>
+      </div>
+      <div class="collection-grid">
+        <a class="collection-card" href="/collections/vinyl-record-journals.html">
+          <img src="/assets/images/queen-vinyl-record-journal-1.jpg" alt="Queen vinyl record journal made by Tangled in Tradition" width="1448" height="1086" loading="lazy">
+          <span class="collection-copy"><strong>Vinyl Record Journals</strong><span>Real records and album art find new life as handmade journals.</span><b>Explore vinyl journals →</b></span>
+        </a>
+        <a class="collection-card" href="/collections/book-journals.html">
+          <img src="/assets/images/oh-the-places-youll-go-book-journal-1.jpg" alt="Oh, the Places You'll Go! upcycled book journal" width="1448" height="1086" loading="lazy">
+          <span class="collection-copy"><strong>Book Journals</strong><span>Storybook covers become useful keepsakes and gifts.</span><b>Explore book journals →</b></span>
+        </a>
+        <a class="collection-card" href="/collections/playbill-journals.html">
+          <img src="/assets/images/hamilton-playbill-journal-1.jpg" alt="Hamilton upcycled playbill journal" width="1448" height="1086" loading="lazy">
+          <span class="collection-copy"><strong>Playbill Journals</strong><span>A favorite show becomes a place for new memories.</span><b>Explore playbill journals →</b></span>
+        </a>
+        <a class="collection-card" href="/collections/comic-book-journals.html">
+          <span class="collection-placeholder" aria-hidden="true">✦</span>
+          <span class="collection-copy"><strong>Comic Book Journals</strong><span>A space for our comic collection. Photos coming soon.</span><b>Explore comic journals →</b></span>
+        </a>
+      </div>
+    </section>
 
     <section class="about" aria-labelledby="about-title">
       <p class="eyebrow">Nostalgia made useful</p>
